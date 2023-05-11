@@ -9,6 +9,8 @@ public class println_arguments
         String a = "John ";
         String b = "Monroe";
         System.out.println(a+b);
+        //System.out.println(Math.min(5,10));
+        System.out.print("hi");
 
     }
 }
