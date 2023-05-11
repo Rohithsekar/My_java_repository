@@ -1,10 +1,11 @@
-import java.util.Locale;
+
 
 public class Strings
 {
     public static void main(String[] args)
     {
         String name = "john";
+        System.out.print("hello da\n");
         //use soup, short for System.out.print
         //use soul, short for System.out.println
         //use souf, short for System.out.printf
