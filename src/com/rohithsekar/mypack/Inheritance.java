@@ -4,7 +4,8 @@ class Inheritance
 {
     protected String brand = "Honda";
 
-    public void changeGear() {
+    public void changeGear()
+    {
         System.out.println("Gear changed");
     }
 }
