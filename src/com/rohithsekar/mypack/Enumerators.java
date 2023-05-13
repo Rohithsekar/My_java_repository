@@ -82,7 +82,7 @@ enum Gender
 
     public static void main(String[] args)
     {
-        Enumtest male = new Enumtest(Gender.MALE);
+        Enumtest male = new Enumtest(Gender.MALE); //new creates the object and calls the constructor implicitly
         male.tellItLikeItIs();
         Enumtest female = new Enumtest(Gender.FEMALE);
         female.tellItLikeItIs();
@@ -91,8 +91,9 @@ enum Gender
     }
 }
 
-
-enum Planet {
+//Example program
+enum Planet
+{
 
     /*Each enum constant is declared with values for the mass and radius parameters.
     These values are passed to the constructor when the constant is created.
@@ -107,8 +108,8 @@ enum Planet {
     URANUS  (8.686e+25, 2.5559e7),
     NEPTUNE (1.024e+26, 2.4746e7); //list of constants ended with a semicolon
 
-    private final double mass;   // in kilograms
-    private final double radius; // in meters
+    private final double mass;   // (in kilograms) field
+    private final double radius; // (in meters) field
     Planet(double mass, double radius)  //constructor
     {
         this.mass = mass;
@@ -117,23 +118,22 @@ enum Planet {
     private double mass()
     {
         return mass;
-    }
+    } //method
     private double radius()
     {
         return radius;
-    }
-
+    } //method
     // universal gravitational constant  (m3 kg-1 s-2)
-    public static final double G = 6.67300E-11;
+    public static final double G = 6.67300E-11; //final local variable
 
     double surfaceGravity()
     {
         return G * mass / (radius * radius);
-    }
+    } //method
     double surfaceWeight(double otherMass)
     {
         return otherMass * surfaceGravity();
-    }
+    } //method
     public static void main(String[] args)
     {
         if (args.length != 1) {
@@ -142,8 +142,9 @@ enum Planet {
         }
         double earthWeight = Double.parseDouble(args[0]);
         double mass = earthWeight/EARTH.surfaceGravity();
-        for (Planet p : Planet.values())
+        for (Planet p : Planet.values())   //for-each loop
             System.out.printf("Your weight on %s is %f%n",
                     p, p.surfaceWeight(mass));
+
     }
 }

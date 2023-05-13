@@ -1,5 +1,5 @@
 package com.rohithsekar.mypack;
-/* Polymorphism means "many forms". The inherited classes can have their own implementation of the parent class
+/** Polymorphism means "many forms". The inherited classes can have their own implementation of the parent class
 methods, overriding the parent implementation of the method. The parent class method tells the child class what to do,
 but not how to do, which the child class does in its own way.
  */
@@ -8,6 +8,7 @@ public class Polymorphism
     public void animalSound()
     {
         System.out.println("Animal makes sounds.");
+
     }
 }
 class Pig extends Polymorphism
