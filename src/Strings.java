@@ -23,7 +23,16 @@ public class Strings
         String second = " Harvey";
         System.out.println(first + "" + second);
         System.out.println(first.concat(second));
-        System.out.print("Hey");
+
+        //String and number concatenation
+        String a = "20";
+        int b = 10;
+        String c = a + b; //The + operator converts the type to string if either of its operand is of non-string type
+        int d = Integer.parseInt(a)+b; //the parse int method parse(analyze) the string representing an integer and
+        //converts into its corresponding int value
+        System.out.println(c);
+        System.out.println(d);
+
         
 
     }
