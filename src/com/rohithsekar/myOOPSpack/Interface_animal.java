@@ -1,4 +1,4 @@
-package com.rohithsekar.mypack;
+package com.rohithsekar.myOOPSpack;
 //interfaces are complete abstract classes in which every method ad class is by default, abstract.
 //interface methods are by default abstract and public
 //interface attributes are by default abstract, public and final

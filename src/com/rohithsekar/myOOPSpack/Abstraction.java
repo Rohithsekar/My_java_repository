@@ -1,4 +1,4 @@
-package com.rohithsekar.mypack;
+package com.rohithsekar.myOOPSpack;
 
 abstract class Abstraction
 {

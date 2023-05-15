@@ -1,4 +1,4 @@
-package com.rohithsekar.mypack;
+package com.rohithsekar.myOOPSpack;
 
 //Enumerators are special class that contain a fixed set of named values in Java. A java enumerator is a class type
 //there is no need for instantiation of enum objects. An enum class has most of the capabilities as a regular class , like

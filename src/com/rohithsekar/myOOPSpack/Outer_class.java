@@ -1,4 +1,4 @@
-package com.rohithsekar.mypack;
+package com.rohithsekar.myOOPSpack;
 
 //Classes can be nested together to make code more readable and maintainable
 //To access the inner class, create an object of outer class, and then create an object of inner_class. Exception is
