@@ -31,9 +31,6 @@ public class MyStream
    //sorted operation
    static List<Integer> sorted_set_squares = setsquare.stream().sorted().collect(Collectors.toList());
 
-
-
-
     public static void main(String[] args)
     {
         System.out.println(square); //prints the collection
