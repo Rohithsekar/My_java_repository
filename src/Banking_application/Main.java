@@ -12,8 +12,6 @@ public class Main
         Admin admin1 = new Admin("a","a"); //creating an admin with username and password
         Admin.add_admin(admin1);
         Main_menu.main_menu(); //calling the main_menu method in Main_menu class
-
-
     }
 
 }
