@@ -65,7 +65,9 @@ public class User_functions extends User
            String payee_log_message = String.format("Credited Rs.%.2f from account %d.Closing balance:Rs.%.2f",amount,payer.accountNumber,payee.getBalance());
 
            payer.log[payer.log_count]=payer_log_message;
+           payer.log_count++;
            payee.log[payee.log_count]=payee_log_message;
+           payee.log_count++;
     }
     static void deposit(User user)
     {
