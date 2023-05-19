@@ -2,6 +2,7 @@ package Banking_application;
 
 import java.util.*;
 
+
 public class User extends Main
 {
     private String userName;  //attribute
@@ -9,12 +10,16 @@ public class User extends Main
     protected long accountNumber;  //attribute
     protected Float balance;  //attribute
 
-    protected LinkedList<String> log = new LinkedList<>(); //attribute
+    protected String[] log = new String[50]; //attribute
+
+    protected int log_count = 0;
 
     private static boolean username_found = false;
     private static boolean password_found = false;
 
-    private static ArrayList<Long> account_numbers = new ArrayList<>();
+    private static long[] account_numbers = new long[10];
+
+    private static int account_numbers_count=0;
 
 
 
@@ -60,23 +65,22 @@ public class User extends Main
 
     public static void user_page()
     {
-        System.out.println("Enter 'E' for existing user, 'N' for new user and 'M' for main_menu");
+        System.out.println("Enter 'E' for existing user, 'N' for new user and 'Q' to quit:");
         Scanner input = new Scanner(System.in);
         String x = input.nextLine().trim().toUpperCase(); // Ignore leading/trailing whitespace and convert to uppercase
 
-        if (x.equals("E") || x.equals("N") || x.equals("M"))
+        if (x.equals("E") || x.equals("N") || x.equals("Q"))
         {
             switch (x)
             {
                 case "E":
                     existing_user();
                     break;
-                    //break;
                 case "N":
                    new_user();
                    break;
-                case "M":
-                    Main_menu.main_menu();
+                case "Q":
+                    System.exit(0);
             }
             user_page();
         }
@@ -89,11 +93,14 @@ public class User extends Main
     private static void new_user()
     {
         Scanner scan = new Scanner(System.in);
+        if(user_count!=10)
+        {
+        System.out.println("Maximum users can be handled is 10. The count is now " + user_count);
         System.out.print("Enter username:");
         String  new_usrname = scan.nextLine();
         String pwd;
         boolean already_exists;
-        if(users.size()==0)
+        if(user_count==0)
         {
             already_exists = false;
         }
@@ -124,16 +131,14 @@ public class User extends Main
                     {
                         User cur_user = new User(new_usrname,pwd,account_number,initial_sum);
                         System.out.println("Account successfully created. Your account number is " + cur_user.accountNumber);
-                        users.add(cur_user);
-                        for(User user : users)
-                        {
-                            if(user.getuserName().equals(new_usrname) && user.getpassword().equals(pwd))
-                            {
-                                User_functions.banking_log(user,initial_sum,'D',true);
-                            }
-                        }
+                        users[user_count]=cur_user;
+                        user_count++;
 
-                        account_numbers.add(account_number); //for checking conflicting account numbers and assign unique account number
+                        User_functions.banking_log(cur_user,initial_sum,'D',true);
+
+
+                        account_numbers[account_numbers_count]=account_number; //for checking conflicting account numbers and assign unique account number
+                        account_numbers_count++;
                     }
                 }
                 catch(NumberFormatException e)
@@ -156,15 +161,23 @@ public class User extends Main
             }
 
         }
+        }
+        else
+        {
+            System.out.println("Maximum user count has been reached. No more users can be added");
+        }
     }
 
     private static void existing_user()
     {
-        User user = user_validation();
-        if(user!=null)
+        try
         {
+            User user = user_validation();
             banking(user);
-
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("No such user exist in the record/Invalid input.");
         }
     }
 
@@ -218,7 +231,7 @@ public class User extends Main
         }
     }
 
-    private static User user_validation()
+    private static User user_validation() throws NullPointerException
     {
 
         System.out.print("Enter username:");
@@ -271,9 +284,9 @@ public class User extends Main
 
     private static boolean check_username(String new_username)
     {
-        for(User i : users)
+        for(int i=0; i<=user_count-1;i++)
         {
-            if(i.userName.equals(new_username))
+            if(users[i].userName.equals(new_username))
             {
                 System.out.println("Username already exists.");
                 return true;

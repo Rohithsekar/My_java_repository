@@ -20,9 +20,9 @@ public class User_functions extends User
 
     static void display_log(User user)
     {
-        for(String message : user.log)
+        for(int i=user.log_count-1; i>=0;i--)
         {
-            System.out.println(message);
+            System.out.println(user.log[i]);
         }
     }
 
@@ -34,18 +34,28 @@ public class User_functions extends User
             if(initial_deposit)
             {
                  log_message = String.format("Initial deposit Rs.%.2f.",amount);
-                user.log.addFirst(log_message);
+                user.log[user.log_count]=log_message;
+                user.log_count++;
             }
             else
             {
-                 log_message = String.format("Credited Rs.%.2f.Closing balance is %.2f" , amount,user.getBalance());
-                user.log.addFirst(log_message);
+                if(user.log_count!=50)
+                {
+                    log_message = String.format("Credited Rs.%.2f.Closing balance is %.2f" , amount,user.getBalance());
+                    user.log[user.log_count]=log_message;
+                    user.log_count++;
+                }
+                else
+                {
+                    System.out.println("No memory space for storing logs");
+                }
             }
         }
         else //withdraw log
         {
             log_message = String.format("Debited Rs.%.2f.Closing balance is %.2f", amount, user.getBalance());
-            user.log.addFirst(log_message);
+            user.log[user.log_count]=log_message;
+            user.log_count++;
         }
     }
 
@@ -54,8 +64,10 @@ public class User_functions extends User
            String payer_log_message = String.format("Debited Rs.%.2f to account %d. Closing balance:Rs.%.2f",amount,payee.accountNumber,payer.getBalance());
            String payee_log_message = String.format("Credited Rs.%.2f from account %d.Closing balance:Rs.%.2f",amount,payer.accountNumber,payee.getBalance());
 
-           payer.log.addFirst(payer_log_message);
-           payee.log.addFirst(payee_log_message);
+           payer.log[payer.log_count]=payer_log_message;
+           payer.log_count++;
+           payee.log[payee.log_count]=payee_log_message;
+           payee.log_count++;
     }
     static void deposit(User user)
     {
