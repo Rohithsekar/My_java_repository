@@ -1,4 +1,4 @@
-package Comparator_illustration;
+package com.rohithsekar.Comparable_$_Comparator_illustration;
 import java.util.Arrays;
 import java.util.Comparator;
 public class SortExample {

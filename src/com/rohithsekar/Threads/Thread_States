@@ -1,0 +1,14 @@
+The thread has certain states from the moment it has been created until it is effectively dead.
+
+1. NEW                       When the thread is created, it is the new state.
+
+2. RUNNABLE                  From the moment we invoke the start method upon a thread, and till it gets the Scheduler
+                             time to begin executing the run method, it will be in a runnable state.
+
+3. RUNNING                   When the CPU space is actually provided to the thread, the thread starts executing, and it
+                             is said to be in the Running state.
+
+4. WAITING                   When the thread is in waiting/blocked mode by invoking certain methods such as wait(), join(),
+                             sleep(), the thread goes into waiting state.
+
+5. DEAD                      When the thread has finished executing/explicitly stopped, it is in the dead state.

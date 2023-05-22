@@ -7,12 +7,14 @@ public class try_catch
     public static void main(String[] args)
     {
 
+        Scanner input=null;
+
         System.out.println("Enter a number");
       while(true)
         {
             try
             {
-                Scanner input = new Scanner(System.in);
+                 input = new Scanner(System.in);
                 float a = input.nextFloat();
                 /*
                 the Scanner object attempts to parse the input as the specified type. If the input cannot be
@@ -23,6 +25,7 @@ public class try_catch
             catch(InputMismatchException e) //if the input is invalid, the exception object is transferred here
             {
                 System.out.print("Invalid input. Enter a number:");
+                input.nextLine();
             }
 
         }
