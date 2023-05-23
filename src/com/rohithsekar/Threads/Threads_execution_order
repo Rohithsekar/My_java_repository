@@ -1,0 +1,51 @@
+In Java, the order in which threads are started and executed is not guaranteed, even if they are started
+sequentially in the main thread. When you start multiple threads in Java, the thread scheduler determines the
+actual order of thread execution based on factors such as thread priorities, thread scheduling policies, and the
+availability of system resources. The thread scheduler is part of the operating system or the underlying Java
+runtime environment, and its behavior may vary across different platforms and implementations.
+
+Even if you start the threads sequentially in the main thread, there is no guarantee that they will be executed in
+the same order. The scheduler may decide to execute one thread before the other, or it may interleave the
+execution of multiple threads based on its own scheduling algorithm. Therefore, you cannot rely on the
+sequential order of thread creation to determine the order of thread execution. If the order of execution is
+important in your application, you should use proper synchronization mechanisms or coordination techniques,
+such as locks, semaphores, or barriers, to control the execution order of threads and ensure the desired behavior.
+
+Consider the following code snippet:
+
+public class Need_For_Volatile
+{
+    public static void main(String[] args) throws InterruptedException //may throw
+    {
+        Worker worker = new Worker(); //Worker is a class implementing Runnable interface
+        Thread t = new Thread(worker);
+        t.start();
+
+        Thread.sleep(1000); // Wait for 1 second
+        worker.halt(); // Request the worker thread to halt
+    }
+}
+ //Is there any chance the second statement gets executed first? Again, Thread is a class and sleep is its method.
+  //Which thread will be put to sleep for 1 second?
+//Here there is only two threads(main thread and the "t" thread.)
+
+There is a chance that the second statement, Thread.sleep(1000), gets executed before the first statement,
+thread.start(). However, the exact behavior depends on the thread scheduling done by the underlying operating
+system and Java runtime environment.
+
+When you call thread.start(), it creates a new thread of execution and invokes the run() method of the thread.
+This newly created thread may or may not start immediately, as it depends on the thread scheduler.
+On the other hand, Thread.sleep(1000) is a static method that causes the currently executing thread
+(in this case, the main thread) to sleep for the specified duration (1 second in this case). It DOES NOT AFFECT
+the execution of other threads.
+
+Therefore, in most cases, the second statement (Thread.sleep(1000)) will be executed first, and the main thread
+(the thread executing the code) will be put to sleep for 1 second. After the sleep duration, the main thread
+resumes execution and continues to the next statement.The newly created thread (thread) may or may not start
+during this 1-second sleep period.(Depends whether there are other threads).Its execution depends on various
+factors such as thread scheduling, system resources, and the complexity of the code within the run() method.
+
+It's important to note that the order of execution between threads is not deterministic and can vary between
+different runs of the program or on different systems. To ensure specific execution order or synchronization
+between threads, you would need to use appropriate synchronization mechanisms like locks, semaphores, or
+barriers.

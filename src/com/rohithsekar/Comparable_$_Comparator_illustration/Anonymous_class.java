@@ -112,6 +112,19 @@ public class Anonymous_class
             };
 
             /*
+            In that particular example, HelloWorld is assumed to be an interface, and the code is creating an
+            anonymous class that implements the HelloWorld interface. The anonymous class provides its own
+            implementation for the greet() and greetSomeone() methods defined in the HelloWorld interface.
+
+            The line new HelloWorld() is instantiating an instance of the anonymous class, which is essentially
+            creating an object that implements the HelloWorld interface. This allows you to define the
+            implementation of the interface's methods inline without explicitly creating a named class.
+
+            So, to summarize, in the context of the example provided, HelloWorld is an interface, and new
+            HelloWorld() creates an instance of an ANONYMOUS CLASS (not interface) implementing that interface.
+             */
+
+            /*
          Accessing Local Variables of the Enclosing Scope, and Declaring and Accessing Members of the Anonymous Class:
 
         Like local classes, anonymous classes can capture variables; they have the same access to local variables of the
@@ -166,4 +179,9 @@ public class Anonymous_class
         }
 }
 
-
+/*
+Anonymous inner class is a nameless class that you use to instantiate only one object ever.
+So, whenever you use an anonymous class, you will always be defining the class and instantiating the
+single object of the class at the same time in a single Java statement. An anonymous class can extend
+any other class or implement an interface.
+ */

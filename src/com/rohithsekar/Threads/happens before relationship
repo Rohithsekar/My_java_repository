@@ -1,0 +1,39 @@
+The happens-before relationship is a concept in the Java Memory Model (JMM) that defines the ordering of actions
+in concurrent programs. It establishes guarantees about the visibility and ordering of memory accesses between
+different threads.
+
+In Java, the happens-before relationship ensures that certain actions in one thread are visible to another thread.
+If an action A happens-before another action B, it means that the effects of A are visible to B. This ensures
+that changes made by one thread are correctly observed by other threads in a predictable and consistent manner.
+
+The happens-before relationship is based on the following rules:
+
+Program order rule: Actions in a single thread occur in the order defined by the program.
+
+Monitor lock rule: An unlock on a monitor lock happens-before any subsequent lock on the same monitor lock.
+
+Volatile variable rule: A write to a volatile variable happens-before any subsequent read of that variable.
+
+Thread start rule: A thread's start() method happens-before any actions in the started thread.
+
+Thread termination rule: Any actions in a thread happen-before actions in any other thread that detects the
+thread has terminated.
+
+Interruption rule: A thread calling interrupt() on another thread happens-before the interrupted thread detects
+the interruption.
+
+Finalizer rule: The end of an object's constructor happens-before the start of its finalizer.
+
+Transitive synchronization rule: If action A happens-before action B, and action B happens-before action C, then
+action A happens-before action C.
+
+These rules define the guarantees provided by the JMM for the ordering and visibility of actions between threads.
+They help ensure that the behavior of concurrent programs is predictable and consistent.
+
+By understanding the happens-before relationship and applying appropriate synchronization mechanisms, such as
+synchronized blocks, volatile variables, or explicit synchronization using locks, you can create correct and
+reliable concurrent programs in Java.
+
+
+
+
