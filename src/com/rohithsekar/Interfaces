@@ -1,0 +1,153 @@
+In Java, an interface is a reference type similar to a class that can contain only constants, the method signatures,
+default methods, and static methods, and its Nested types. In interfaces, method bodies exist only for default methods
+and static methods. Writing an interface is similar to writing to a standard class. Still, a class describes the
+attributes and internal behaviors objects, and an interface contains behaviors that a class implements. On the other
+side unless the class that implements the interface is purely abstract and all the interface methods need to be defined
+in that given usable class.
+
+An interface is Similar To a Class In Following Ways:
+
+An interface can contain any number of methods in that interface.
+An Interface can have constant values, which are implicitly defined as public static final.
+An interface name is written in a file with a – (.java extension ) with the name of the interface must be matching the
+name of the file of that Java program.
+The byte code of a given interface will be created in a –  .class file.
+Interfaces appear in packages, and their corresponding bytecode file must similarly be in a structure that matches the
+package name with it.
+
+
+How To Declare Interfaces?
+
+The interface keyword is used to declare an interface. Here We have a simple example of declaring an interface.
+
+public interface NameOfTheInterface
+{
+
+// Any final, static fields here
+
+// Any abstract method declaration here
+
+}
+//This is Declaration of the interface
+
+Properties of an Interface:
+
+An Interfaces have the following properties:
+
+An interface is implicitly pure abstract.
+No need to use the abstract keyword while declaring an interface
+Each method in an interface is also implicitly abstract, so the abstract keyword is not needed
+The Methods in an interface are implicitly public within it
+
+Types of Interfaces:
+
+* Functional Interface
+* Marker interface
+
+1. Functional Interface:
+Functional Interface is an interface that has only pure one abstract method.
+It can have any number of static and default methods and also even public methods of java.lang.Object classes
+When an interface contains only one abstract method, then it is known as a Functional Interface.
+
+Examples of Functional Interfaces:
+Runnable : It contains only  run()  method
+ActionListener : It contains only  actionPerformed()
+ItemListener : It contains only  itemStateChanged() method.
+
+2. Marker Interface:
+An interface that does not contain any methods, fields, Abstract Methods, and any Constants is Called a Marker interface.
+Also, if an interface is empty, then it is known as Marker Interface.
+The Serializable and the Cloneable interfaces are examples of Marker interfaces.
+
+There are two alternatives to the marker interface that produce the same result as the marker interface.
+
+
+1) Internal Flags – It is used in the place of the Marker interface to implement any specific operation.
+
+2) Annotations – By applying annotations to any class, we can perform specific actions on it.
+
+Built-in Marker Interface
+There are three types of Built-In Marker Interfaces in Java. These are
+
+Cloneable Interface
+Serializable Interface
+Remote Interface
+1. Cloneable Interface
+
+A cloneable interface in Java is also a Marker interface that belongs to java.lang packages.
+It generates a replica(copy) of an object with a different name. Therefore we can implement the interface in the class
+of which class object is to be cloned.
+It implements the clone() method of the Object class to it.
+Note – A class that implements the Cloneable interface must override the clone() method by using a public method.
+
+For Example:
+
+
+// This is Program To implement the Cloneable Interface
+ import java.lang.Cloneable;
+
+
+ class abc implements Cloneable
+// Here The abc is a class constructor
+{
+    int x;
+    String y;
+    // Here The abc is a class constructor
+    public abc(int x,String y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    protected Object clone()
+    throws CloneNotSupportedException
+
+    {
+        return super.clone();
+    }
+}
+
+    public class Test
+ {
+        public static void main(String[] args)
+             throws CloneNotSupportedException
+         {
+
+        abc p = new abc(10, "We Are Reading GFG Now");
+        abc q = (abc)p.clone();
+
+        System.out.println(q.x);
+        System.out.println(q.y);
+
+        }
+ }
+
+
+Output
+10
+We Are Reading GFG Now
+
+
+2. Serializable Interface:
+
+It is a marker interface in Java that is defined in the java.io package. If we want to make the class serializable, we
+must implement the Serializable interface. If a class implements the Serializable interface, we can serialize or
+deserialize the state of an object of that class.
+
+Serialization is a mechanism in which our object state is ready from memory and written into a file or from the
+databases.
+
+Deserialization- is the opposite of serialization means that object state reading from a file or database and written
+back into memory is called deserialization of an object.
+
+Serialization – Converting an object into byte stream.
+Deserialization – Converting byte stream into an object.
+
+3. Remote Interface:
+
+A remote interface is a marker interface that belongs to java.rmi package. It marks an object as a remote that can be
+accessed from the host of another machine. We need to implement the Remote interface if we want to make an object remote
+then. Therefore, It identifies the interface.A remote interface serves to identify interfaces whose methods may be
+invoked from a non-local virtual machine. Any object that is a remote object must directly or indirectly implement this
+interface.The remote interface is an interface that declares the set of methods that will be invoked from a remote
+Java Virtual Machine, i.e.(JVM)

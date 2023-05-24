@@ -1,0 +1,5 @@
+Default :
+
+In Java, if no access modifier is specified, the identifier has default access. Default access allows access within the
+same package but restricts access from outside the package. In other words, classes, methods, and variables with default
+access are visible and accessible within the same package but not accessible from classes in different packages.

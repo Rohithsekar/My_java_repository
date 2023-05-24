@@ -53,6 +53,7 @@ public class Mypattern
 
          */
 
+
         String input = "Make2the3best4of5what6you7got";
         String delimiter = "\\d"; //storing the special pattern \d in the string
         Pattern pattern2 = Pattern.compile(delimiter,Pattern.CASE_INSENSITIVE);

@@ -19,6 +19,7 @@ public class MyHashMap
         initialize_languages();
         languages.put("France", "French");
         System.out.println(languages.size());
+        System.out.println(languages);
         for (String i : languages.keySet()) //keySet method prints values
         {
             System.out.println(i);

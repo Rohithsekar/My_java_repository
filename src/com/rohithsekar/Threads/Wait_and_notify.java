@@ -100,7 +100,7 @@ public class Wait_and_notify
         // Runnable interface is passed as the constructor argument, it goes to the class implementing Runnable and
         // then the command comes to the closing parenthesis of the constructor. Since we create an anonymous class
         // implementing Runnable, we have to provide the class body before we can enclose the Thread object constructor.
-        Thread t1 = new Thread(new Runnable()
+        Thread t1 = new Thread(new Runnable()  //creates (instantiates) an anonymous class camouflaged by interface name
         {
             @Override
             public void run()
