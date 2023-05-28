@@ -1,0 +1,37 @@
+JDBC, JPA, ORM, and Hibernate are all related to database access and management in Java applications, but they represent different technologies and
+concepts. Here are the differences between these terms and how they are interlinked:
+
+1. JDBC (Java Database Connectivity):
+JDBC is a Java API that provides a standard way to interact with relational databases. It allows Java applications to connect to a database, send SQL
+queries, retrieve and manipulate data, and manage database transactions. JDBC provides a low-level, database-specific approach, where developers need to
+write SQL statements and handle database-specific details manually.
+
+2. JPA (Java Persistence API):
+JPA is a Java specification for Object-Relational Mapping (ORM). It provides a high-level, object-oriented approach to database access, allowing
+developers to interact with databases using Java objects instead of writing SQL queries directly. JPA defines a set of annotations and APIs that map Java
+objects to database tables and perform transparent data persistence and retrieval. It abstracts away the underlying database details and provides a
+standard API for different ORM frameworks to implement.
+
+3. ORM (Object-Relational Mapping):
+ORM is a programming technique that allows developers to map and manipulate objects in an object-oriented application to relational database tables. It
+bridges the gap between the object-oriented paradigm of application development and the relational nature of databases. ORM frameworks provide tools and
+libraries that automate the process of mapping objects to database tables, generating SQL queries, and handling the object-to-database conversion. They
+abstract away the complexities of low-level database access, allowing developers to focus on the application's business logic.
+
+4. Hibernate:
+Hibernate is an open-source Java ORM framework that implements the JPA specification. It provides a powerful and flexible solution for object-relational
+mapping and database access. Hibernate acts as an intermediary between the Java application and the database, managing the persistence of Java objects to
+the database tables. It provides features like transparent object-to-database mapping, caching, lazy loading, and automatic SQL generation. Hibernate is
+widely used in Java enterprise applications and is one of the most popular ORM frameworks available.
+
+In terms of interlinking, JPA is a specification that defines a set of APIs and annotations for object-relational mapping, while Hibernate is an
+implementation of the JPA specification. Hibernate provides the underlying ORM functionality and integrates with the JPA API. This means that you can use
+Hibernate as the ORM provider when working with JPA. However, it's important to note that JPA is not limited to Hibernate, and there are other ORM
+frameworks available that implement the JPA specification, such as EclipseLink and OpenJPA.
+
+JDBC is a lower-level API that provides direct database access, and it can be used independently or alongside JPA and ORM frameworks. While JDBC requires
+writing SQL queries and handling database-specific details manually, JPA and ORM frameworks like Hibernate abstract away these complexities and provide
+higher-level abstractions for easier database interaction.
+
+In summary, JDBC is the lowest-level API for database access, JPA is a specification for ORM, ORM is a programming technique for mapping objects to
+databases, and Hibernate is an ORM framework that implements the JPA specification.

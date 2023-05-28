@@ -4,7 +4,7 @@ public class Variables
     {
         //final keyword is used to assign a fixed value to a variable that can't be changed anywhere else
         final int a=10;
-        System.out.printf("%d",a);
+        System.out.printf("%d\n",a);
         //a=15;
         //System.out.printf("%d",a);
 
