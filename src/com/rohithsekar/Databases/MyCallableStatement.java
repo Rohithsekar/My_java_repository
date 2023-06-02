@@ -1,4 +1,5 @@
 package com.rohithsekar.Databases;
+<<<<<<< HEAD
 import java.sql.*;
 
 //This class demonstrates simple callable statement with no parameters and no return type
@@ -103,3 +104,10 @@ public class MyCallableStatement
 
 }
 
+=======
+
+public class MyCallableStatement
+{
+
+}
+>>>>>>> origin/master
